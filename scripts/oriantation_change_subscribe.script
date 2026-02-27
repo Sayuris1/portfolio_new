@@ -1,0 +1,3 @@
+function init(self)
+	msg.post("/orientation_manager#oriantation_change_listener", hash("subscribe"))
+end

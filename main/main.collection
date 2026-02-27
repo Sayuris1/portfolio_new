@@ -10,11 +10,15 @@ instances {
     z: -2.5
   }
 }
+instances {
+  id: "orientation_manager"
+  prototype: "/prefabs/orientation_manager.go"
+}
 collection_instances {
   id: "name"
   collection: "/prefabs/name.collection"
   position {
-    x: -22.0
+    x: -20.0
     y: 26.0
     z: -500.0
   }

@@ -1,0 +1,40 @@
+local function check_aspect_change(self)
+	local before = self.is_width
+
+	local width, height = window.get_size()
+	self.is_width = width > height
+
+	return before ~= self.is_width
+end
+
+local function scale_whole_table(table, multi)
+	for _, value in pairs(table) do
+		local scale = go.get_scale(value)
+		go.set_scale(scale * multi, value)
+	end
+end
+
+local function scale(self, event, data, is_start)
+	if check_aspect_change(self) or is_start then
+		if self.is_width then
+			scale_whole_table(self.game_objects, 2)
+		else
+			scale_whole_table(self.game_objects, 0.5)
+		end
+	end
+end
+
+function init(self)
+	self.game_objects = {}
+
+	scale(self, nil, nil, true)
+
+	window.set_listener(scale)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("subscribe") then
+		table.insert(self.game_objects, sender)
+		scale(self, nil, nil, true)
+	end
+end
