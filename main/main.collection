@@ -10,4 +10,18 @@ instances {
     z: -2.5
   }
 }
+collection_instances {
+  id: "name"
+  collection: "/prefabs/name.collection"
+  position {
+    x: -22.0
+    y: 26.0
+    z: -500.0
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 0.5
+  }
+}
 scale_along_z: 0

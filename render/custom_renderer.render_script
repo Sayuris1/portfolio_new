@@ -216,6 +216,11 @@ function update(self)
 
     -- set states used for all the world predicates
     render.set_blend_func(graphics.BLEND_FACTOR_SRC_ALPHA, graphics.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA)
+
+    render.enable_state(graphics.STATE_BLEND)
+    render.draw(predicates.bg)
+    render.disable_state(graphics.STATE_BLEND)
+
     render.enable_state(graphics.STATE_DEPTH_TEST)
 
     -- render `model` predicate for default 3D material
@@ -233,8 +238,6 @@ function update(self)
     render.disable_state(graphics.STATE_DEPTH_TEST)
 
     render.draw_debug3d()
-
-    render.draw(predicates.bg)
 
     reset_camera_world(state)
 
