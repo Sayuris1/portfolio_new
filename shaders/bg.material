@@ -1,0 +1,21 @@
+name: "bg"
+tags: "tile"
+vertex_program: "/shaders/bg.vp"
+fragment_program: "/shaders/bg.fp"
+vertex_constants {
+  name: "view_proj"
+  type: CONSTANT_TYPE_VIEWPROJ
+}
+fragment_constants {
+  name: "bg_const"
+  type: CONSTANT_TYPE_USER
+  value {
+    y: 1920.0
+  }
+}
+fragment_constants {
+  name: "bg_rands"
+  type: CONSTANT_TYPE_USER
+  value {
+  }
+}
