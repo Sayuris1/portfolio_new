@@ -1,0 +1,18 @@
+local function fit_to_window(start_width, start_height, aspect_ratio)
+	local width, height = window.get_size()
+
+	local new_scale = vmath.vector3(width / start_width * aspect_ratio, height / start_height, 1)
+	go.set_scale(new_scale)
+end
+
+function init(self)
+	self.camera_url = msg.url("/camera#camera")
+
+	self.start_width, self.start_height = window.get_size()
+	self.aspect_ratio = camera.get_aspect_ratio(self.camera_url)
+	fit_to_window(self.start_width, self.start_height, self.aspect_ratio)
+end
+
+function update(self, dt)
+	fit_to_window(self.start_width, self.start_height, self.aspect_ratio)
+end

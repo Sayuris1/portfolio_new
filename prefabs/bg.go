@@ -1,3 +1,7 @@
+components {
+  id: "scale_to_screen"
+  component: "/scripts/scale_to_screen.script"
+}
 embedded_components {
   id: "model"
   type: "model"

@@ -3,4 +3,11 @@ instances {
   id: "camera"
   prototype: "/prefabs/camera.go"
 }
+instances {
+  id: "bg"
+  prototype: "/prefabs/bg.go"
+  position {
+    z: -2.3
+  }
+}
 scale_along_z: 0

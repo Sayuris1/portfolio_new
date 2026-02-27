@@ -1,5 +1,5 @@
 name: "bg"
-tags: "tile"
+tags: "bg"
 vertex_program: "/shaders/bg.vp"
 fragment_program: "/shaders/bg.fp"
 vertex_constants {
