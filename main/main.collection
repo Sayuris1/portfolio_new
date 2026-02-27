@@ -7,7 +7,7 @@ instances {
   id: "bg"
   prototype: "/prefabs/bg.go"
   position {
-    z: -2.3
+    z: -2.5
   }
 }
 scale_along_z: 0

@@ -58,7 +58,7 @@ vec3 nrand3( vec2 co )
 void main()
 {
     vec2 uv = 2. * var_texcoord0.xy - 1.;
-    vec2 uvs = uv;
+    vec2 uvs = uv * bg_const.zw / bg_const.y;
     vec3 p = vec3(uvs / 4., 0) + vec3(1., -1.3, 0.);
 	p += .2 * vec3(sin(bg_const.x / 16.), sin(bg_const.x / 12.),  sin(bg_const.x / 128.));
 

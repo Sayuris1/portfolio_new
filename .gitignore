@@ -12,3 +12,4 @@ builtins
 
 # Visual Studio Code # 
 **/.vscode/
+debug.*
