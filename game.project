@@ -1,5 +1,6 @@
 [bootstrap]
 main_collection = /main/main.collectionc
+render = /builtins/render/default.renderc
 
 [script]
 shared_state = 1
@@ -21,4 +22,5 @@ scale_mode = stretch
 
 [project]
 title = portfolio
+dependencies = 
 

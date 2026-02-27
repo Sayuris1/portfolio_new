@@ -1,2 +1,6 @@
 name: "main"
+instances {
+  id: "camera"
+  prototype: "/prefabs/camera.go"
+}
 scale_along_z: 0
