@@ -1,0 +1,37 @@
+local CURRENT_COLOR = vmath.vector4(0.23, 1, 0.1, 1)
+local PAST_COLOR = vmath.vector4(0.7, 0.2, 0.6, 1)
+
+local urls = {
+        "/top_bar/start",
+        "/top_bar/experience",
+        "/top_bar/education",
+        "/top_bar/programming",
+        "/top_bar/design",
+        "/top_bar/CV"
+    }
+
+local function set_color_label(current_page)
+    go.set(urls[current_page - 1] .. "#label", "color", PAST_COLOR)
+    go.set(urls[current_page] .. "#label", "color", CURRENT_COLOR)
+end
+
+local function set_color_circles(current_page)
+    for i = 1, 7 do
+        local index = i == 1 and "" or i - 1
+        go.set(urls[current_page - 1] .. "_circles#sprite" .. index, "tint", PAST_COLOR)
+    end
+end
+
+function init(self)
+    self.current_page = 1
+
+    go.set(urls[1] .. "#label", "color", CURRENT_COLOR)
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("next") then
+        self.current_page = self.current_page + 1
+        set_color_label(self.current_page)
+        set_color_circles(self.current_page)
+    end
+end

@@ -19,13 +19,27 @@ collection_instances {
   collection: "/prefabs/name.collection"
   position {
     x: -20.0
-    y: 26.0
+    y: 141.0
     z: -500.0
   }
   scale3 {
     x: 0.5
     y: 0.5
     z: 0.5
+  }
+}
+collection_instances {
+  id: "top_bar"
+  collection: "/prefabs/top_bar.collection"
+  position {
+    x: -3.0
+    y: 195.0
+    z: -500.0
+  }
+  scale3 {
+    x: 0.11
+    y: 0.11
+    z: 0.11
   }
 }
 scale_along_z: 0
