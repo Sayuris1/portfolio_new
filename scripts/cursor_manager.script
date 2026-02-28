@@ -1,0 +1,19 @@
+function init(self)
+    msg.post(".", "acquire_input_focus")
+end
+
+function on_input(self, action_id, action)
+    local cursor_pos = camera.screen_to_world(vmath.vector3(action.screen_x, action.screen_y, 500), "/camera#camera")
+
+    action.x = cursor_pos.x
+    action.y = cursor_pos.y
+    action.z = -500
+
+    msg.post("/cursor#cursor", hash("input"), {action_id = action_id, action = action})
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("pressed") then
+        msg.post("/top_bar/bar_controller#top_bar", hash("next"))
+    end
+end

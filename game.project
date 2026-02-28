@@ -23,5 +23,5 @@ scale_mode = stretch
 
 [project]
 title = portfolio
-dependencies = 
+dependencies#0 = https://github.com/britzl/defold-input/archive/refs/tags/4.7.0.zip
 
