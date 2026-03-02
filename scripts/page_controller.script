@@ -1,0 +1,32 @@
+local urls = {
+        {"/name/personal_name"},
+        {"/experience/experience"}
+    }
+
+local function next_page(current_page)
+    for index, value in ipairs(urls[current_page - 1]) do
+        local new_pos = go.get_position(value)
+        new_pos.x = new_pos.x - 600
+        go.animate(value, "position.x", go.PLAYBACK_ONCE_FORWARD, new_pos.x, go.EASING_INCIRC, 0.5, 0, function ()
+            for index, value in ipairs(urls[current_page]) do
+                local new_pos = go.get_position(value)
+                new_pos.x = new_pos.x - 500
+                go.animate(value, "position.x", go.PLAYBACK_ONCE_FORWARD, new_pos.x, go.EASING_LINEAR, 0.1, 0, function ()
+                    new_pos.x = new_pos.x - 100
+                    go.animate(value, "position.x", go.PLAYBACK_ONCE_FORWARD, new_pos.x, go.EASING_OUTELASTIC, 0.4)
+                end)
+            end
+        end)
+    end
+end
+
+function init(self)
+    self.current_page = 1
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("next") then
+        self.current_page = self.current_page + 1
+        next_page(self.current_page)
+    end
+end
