@@ -1,0 +1,6 @@
+function on_message(self, message_id, message, sender)
+    if message_id == hash("pressed") then
+        msg.post("/top_bar/bar_controller#top_bar", hash("next"))
+        msg.post("/page_controller#page_controller", hash("next"))
+    end
+end
