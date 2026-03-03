@@ -1,5 +1,6 @@
 local CURRENT_COLOR = vmath.vector4(0.23, 1, 0.1, 1)
 local PAST_COLOR = vmath.vector4(0.7, 0.2, 0.6, 1)
+local WAIT_COLOR= vmath.vector4(1, 1, 1, 1)
 
 local urls = {
         "/top_bar/start",
@@ -15,11 +16,25 @@ local function set_color_label(current_page)
     go.animate(urls[current_page] .. "#label", "color", go.PLAYBACK_ONCE_FORWARD, CURRENT_COLOR, go.EASING_LINEAR, 0.3)
 end
 
+local function set_color_label_back(current_page)
+    go.animate(urls[current_page + 1] .. "#label", "color", go.PLAYBACK_ONCE_FORWARD, WAIT_COLOR, go.EASING_LINEAR, 0.3)
+    go.animate(urls[current_page] .. "#label", "color", go.PLAYBACK_ONCE_FORWARD, CURRENT_COLOR, go.EASING_LINEAR, 0.3)
+end
+
 local function set_color_circles(current_page)
     for i = 1, 7 do
         timer.delay(0.1 * (7 - i), false, function ()
             local index = i == 1 and "" or i - 1
             go.set(urls[current_page - 1] .. "_circles#sprite" .. index, "tint", PAST_COLOR)
+        end)
+    end
+end
+
+local function set_color_circles_back(current_page)
+    for i = 1, 7 do
+        timer.delay(0.1 * i, false, function ()
+            local index = i == 1 and "" or i - 1
+            go.set(urls[current_page] .. "_circles#sprite" .. index, "tint", WAIT_COLOR)
         end)
     end
 end
@@ -35,5 +50,9 @@ function on_message(self, message_id, message, sender)
         self.current_page = self.current_page + 1
         set_color_label(self.current_page)
         set_color_circles(self.current_page)
+    elseif message_id == hash("prev") then
+        self.current_page = self.current_page - 1
+        set_color_label_back(self.current_page)
+        set_color_circles_back(self.current_page)
     end
 end
