@@ -8,7 +8,6 @@ local function next_page(current_page)
         local new_pos = go.get_position(value)
         new_pos.x = new_pos.x - 600
         go.animate(value, "position.x", go.PLAYBACK_ONCE_FORWARD, new_pos.x, go.EASING_INCIRC, 0.5, 0, function ()
-            pprint(current_page)
             for index, value in ipairs(urls[current_page]) do
                 local new_pos = go.get_position(value)
                 new_pos.x = new_pos.x - 600

@@ -2,21 +2,204 @@ name: "experience"
 scale_along_z: 0
 embedded_instances {
   id: "experience"
-  children: "test"
-  data: ""
+  children: "outclass"
+  data: "components {\n"
+  "  id: \"oriantation_change_subscribe\"\n"
+  "  component: \"/scripts/oriantation_change_subscribe.script\"\n"
+  "}\n"
+  ""
+  scale3 {
+    x: 0.9
+    y: 0.9
+    z: 0.9
+  }
 }
 embedded_instances {
-  id: "test"
+  id: "outclass"
+  children: "back"
+  children: "outclass_date"
+  children: "outclass_role"
+  children: "outclass_sprite"
+  children: "outclass_text"
+  children: "outclass_title"
+  data: ""
+  position {
+    x: -14.444445
+    y: -193.33334
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "outclass_role"
   data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"anim\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/builtins/graphics/particle_blob.tilesource\\\"\\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
   "}\\n"
+  "text: \\\"Technical Artist\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
   "\"\n"
   "}\n"
   ""
+  position {
+    x: 9.888889
+    y: 36.0
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "outclass_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"outclassgames_logo\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 200.0\\n"
+  "  y: 200.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -750.0\n"
+  "    y: 425.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 3.0\n"
+  "    y: 3.0\n"
+  "    z: 3.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "outclass_text"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "pivot: PIVOT_W\\n"
+  "text: \\\"Created stunning visual effects\\\\n"
+  "\\\"\\n"
+  "  \\\"Mastered rapid development environment\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -861.11115\n"
+  "    y: 83.333336\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.555557
+    y: -11.666667
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "outclass_title"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"OutClass - Internship\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 10.999999
+    y: 51.77778
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "back"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"text_back\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    y: 13.333334\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 66.66667
+    y: -11.111112
+  }
+  scale3 {
+    x: 2.8
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "outclass_date"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Mar 2022 - Apr 2022\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 12.111111
+    y: 28.222221
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
 }
