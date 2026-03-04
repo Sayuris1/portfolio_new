@@ -1,0 +1,248 @@
+name: "experience"
+scale_along_z: 0
+embedded_instances {
+  id: "jam_games"
+  children: "games"
+  children: "list1"
+  children: "list2"
+  children: "list3"
+  data: "components {\n"
+  "  id: \"oriantation_change_subscribe\"\n"
+  "  component: \"/scripts/oriantation_change_subscribe.script\"\n"
+  "}\n"
+  ""
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}
+embedded_instances {
+  id: "games"
+  children: "back"
+  children: "games_text"
+  data: ""
+  position {
+    y: 46.25
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "games_text"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Jam Games\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  scale {\n"
+  "    x: 2.0\n"
+  "    y: 2.0\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    y: 183.02777
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "back"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"text_back\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 100.0\\n"
+  "  y: 100.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    y: 13.333334\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.68\n"
+  "    y: 0.6\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    y: 150.13889
+  }
+  scale3 {
+    x: 2.8
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "list2"
+  children: "renderer_sprite"
+  data: ""
+  position {
+    x: 13.75
+    y: -2.5
+  }
+  scale3 {
+    x: 0.02
+    y: 0.02
+    z: 0.015
+  }
+}
+embedded_instances {
+  id: "renderer_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"games2\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 464.0\\n"
+  "  y: 357.0\\n"
+  "}\\n"
+  "playback_rate: 0.1\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/games.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 16.88\n"
+  "    y: 17.28\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 1687.5
+    y: -312.49988
+  }
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}
+embedded_instances {
+  id: "list1"
+  children: "lights_sprite"
+  data: ""
+  position {
+    x: -23.750002
+    y: 248.75
+  }
+  scale3 {
+    x: 0.025
+    y: 0.025
+    z: 0.02
+  }
+}
+embedded_instances {
+  id: "lights_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"games1\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 464.0\\n"
+  "  y: 357.0\\n"
+  "}\\n"
+  "playback_rate: 0.1\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/games.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 13.0\n"
+  "    y: 13.0\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}
+embedded_instances {
+  id: "list3"
+  children: "renderer_sprite1"
+  data: ""
+  position {
+    x: 11.249999
+    y: 41.24999
+  }
+  scale3 {
+    x: 0.021
+    y: 0.021
+    z: 0.02
+  }
+}
+embedded_instances {
+  id: "renderer_sprite1"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"games3\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 1216.0\\n"
+  "  y: 871.0\\n"
+  "}\\n"
+  "playback_rate: 0.1\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/games2.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 5677.0835\n"
+  "    y: -4479.1665\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 16.88\n"
+  "    y: 17.28\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -6723.2144
+    y: -11602.679
+  }
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}

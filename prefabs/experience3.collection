@@ -273,7 +273,11 @@ embedded_instances {
   "\\\"\\n"
   "  \\\"Adapting AI-based upscaling\\\\n"
   "\\\"\\n"
-  "  \\\"algorithms for 2.5D scenes.  \\\"\\n"
+  "  \\\"algorithms for 2.5D scenes. \\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Unity, C#, GLSL, Phyton\\\"\\n"
   "font: \\\"/font/fancy_font_copy.font\\\"\\n"
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
@@ -290,7 +294,7 @@ embedded_instances {
   ""
   position {
     x: -2.767361
-    y: -141.39583
+    y: -149.03471
   }
   scale3 {
     x: 0.04

@@ -640,7 +640,11 @@ embedded_instances {
   "\\\"\\n"
   "  \\\"Scripted gameplay systems \\\\n"
   "\\\"\\n"
-  "  \\\"and mechanics.\\\"\\n"
+  "  \\\"and mechanics.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"C#, HLSL, Shader Graph\\\"\\n"
   "font: \\\"/font/fancy_font_copy.font\\\"\\n"
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
@@ -657,7 +661,7 @@ embedded_instances {
   ""
   position {
     x: -17.61111
-    y: -103.375
+    y: -108.375
   }
   scale3 {
     x: 0.14
@@ -682,7 +686,11 @@ embedded_instances {
   "\\\"\\n"
   "  \\\"Built VFX and \\\\n"
   "\\\"\\n"
-  "  \\\"particle effects.\\\"\\n"
+  "  \\\"particle effects.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"C#, HLSL, Shader Graph\\\"\\n"
   "font: \\\"/font/fancy_font_copy.font\\\"\\n"
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
@@ -699,7 +707,7 @@ embedded_instances {
   ""
   position {
     x: -13.861111
-    y: -103.375
+    y: -107.75
   }
   scale3 {
     x: 0.14

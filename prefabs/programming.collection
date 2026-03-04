@@ -1,0 +1,362 @@
+name: "experience"
+scale_along_z: 0
+embedded_instances {
+  id: "programming"
+  children: "lights"
+  children: "renderer"
+  children: "showreel"
+  data: "components {\n"
+  "  id: \"oriantation_change_subscribe\"\n"
+  "  component: \"/scripts/oriantation_change_subscribe.script\"\n"
+  "}\n"
+  ""
+  position {
+    x: -12.0
+  }
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}
+embedded_instances {
+  id: "showreel"
+  children: "back"
+  children: "showreel_text"
+  children: "video"
+  data: ""
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "showreel_text"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Showreel\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  scale {\n"
+  "    x: 2.0\n"
+  "    y: 2.0\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 16.25
+    y: 183.02777
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "back"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"text_back\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 100.0\\n"
+  "  y: 100.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    y: 13.333334\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.68\n"
+  "    y: 0.6\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 26.041672
+    y: 150.13889
+  }
+  scale3 {
+    x: 2.8
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "video"
+  data: "components {\n"
+  "  id: \"video_player\"\n"
+  "  component: \"/scripts/video_player.script\"\n"
+  "  properties {\n"
+  "    id: \"file_count\"\n"
+  "    value: \"7.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"logo7\\\"\\n"
+  "material: \\\"/shaders/sprite_smoth_big.material\\\"\\n"
+  "size {\\n"
+  "  x: 128.0\\n"
+  "  y: 128.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/video_atlases/videos7.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"anim\\\"\\n"
+  "material: \\\"/assets/sprite_black.material\\\"\\n"
+  "size {\\n"
+  "  x: 32.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/builtins/graphics/particle_blob.tilesource\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 16.88\n"
+  "    y: 17.28\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 16.875
+    y: 99.37499
+  }
+  scale3 {
+    x: 1.6
+    y: 0.9
+  }
+}
+embedded_instances {
+  id: "renderer"
+  children: "renderer_sprite"
+  children: "renderer_text"
+  data: ""
+  position {
+    x: -68.75
+    y: 27.49999
+  }
+  scale3 {
+    x: 0.03
+    y: 0.03
+    z: 0.04
+  }
+}
+embedded_instances {
+  id: "renderer_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"sdf\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 464.0\\n"
+  "  y: 357.0\\n"
+  "}\\n"
+  "playback_rate: 0.1\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 520.8333\n"
+  "    y: -416.66666\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 16.88\n"
+  "    y: 17.28\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -812.5
+    y: -1593.75
+  }
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}
+embedded_instances {
+  id: "renderer_text"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Solarpunk Raymarcher\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"3D SDF Renderer.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Custom 3D texture-based\\\\n"
+  "\\\"\\n"
+  "  \\\"SDF storage technique.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Rust, OpenGL, SDL\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 125.0\n"
+  "    y: -135.41667\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.2\n"
+  "    y: 1.2\n"
+  "    z: 1.2\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -874.99994
+    y: -6427.083
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+embedded_instances {
+  id: "lights"
+  children: "lights_sprite"
+  children: "lights_text"
+  data: ""
+  position {
+    x: 168.75
+    y: 27.49999
+  }
+  scale3 {
+    x: 0.03
+    y: 0.03
+    z: 0.04
+  }
+}
+embedded_instances {
+  id: "lights_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"lights\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 464.0\\n"
+  "  y: 357.0\\n"
+  "}\\n"
+  "playback_rate: 0.1\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 572.9166\n"
+  "    y: -416.66666\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 13.0\n"
+  "    y: 13.0\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -812.5
+    y: -1593.75
+  }
+  scale3 {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+}
+embedded_instances {
+  id: "lights_text"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Pixel Perfect \\\\n"
+  "\\\"\\n"
+  "  \\\"Dynamic Shadows\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Used by the Defold\\\\n"
+  "\\\"\\n"
+  "  \\\"team as an offical shading\\\\n"
+  "\\\"\\n"
+  "  \\\"solution.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Lua, Defold, GLSL, WebGL\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 125.0\n"
+  "    y: -135.41667\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.2\n"
+  "    y: 1.2\n"
+  "    z: 1.2\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -874.99994
+    y: -6427.083
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
