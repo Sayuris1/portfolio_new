@@ -1,6 +1,8 @@
 local urls = {
         {"/name/personal_name"},
-        {"/experience/experience"}
+        {"/experience/experience"},
+        {"/experience2/experience"},
+        {"/experience3/experience"}
     }
 
 local function next_page(current_page)

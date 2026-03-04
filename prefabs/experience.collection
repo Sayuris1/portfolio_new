@@ -2,16 +2,23 @@ name: "experience"
 scale_along_z: 0
 embedded_instances {
   id: "experience"
+  children: "nowhere"
   children: "outclass"
+  children: "rootcraft"
+  children: "video"
+  children: "video1"
   data: "components {\n"
   "  id: \"oriantation_change_subscribe\"\n"
   "  component: \"/scripts/oriantation_change_subscribe.script\"\n"
   "}\n"
   ""
+  position {
+    x: -12.0
+  }
   scale3 {
-    x: 0.9
-    y: 0.9
-    z: 0.9
+    x: 0.8
+    y: 0.8
+    z: 0.8
   }
 }
 embedded_instances {
@@ -20,12 +27,11 @@ embedded_instances {
   children: "outclass_date"
   children: "outclass_role"
   children: "outclass_sprite"
-  children: "outclass_text"
   children: "outclass_title"
   data: ""
   position {
-    x: -14.444445
-    y: -193.33334
+    x: 0.555555
+    y: 70.555504
   }
   scale3 {
     x: 2.0
@@ -35,6 +41,165 @@ embedded_instances {
 }
 embedded_instances {
   id: "outclass_role"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Technical Artist\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -43.86111
+    y: 74.75
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "outclass_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"outclassgames_logo\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 200.0\\n"
+  "  y: 200.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  scale {\n"
+  "    x: 3.0\n"
+  "    y: 3.0\n"
+  "    z: 3.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -46.25
+    y: 126.875
+  }
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "outclass_title"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"OutClass - Internship\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -42.75
+    y: 90.52778
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "back"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"text_back\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -36.830357\n"
+  "    y: 13.333334\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 251.66667
+    y: -171.73611
+    z: -2.0
+  }
+  scale3 {
+    x: 6.24
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "outclass_date"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Mar 2022 - Apr 2022\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -41.63889
+    y: 66.97222
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "nowhere"
+  children: "back1"
+  children: "nowhere_date"
+  children: "nowhere_sprite"
+  children: "nowhere_text"
+  children: "outclass_role1"
+  children: "outclass_title1"
+  data: ""
+  position {
+    x: 24.305553
+    y: -1696.5277
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "outclass_role1"
   data: "embedded_components {\n"
   "  id: \"label\"\n"
   "  type: \"label\"\n"
@@ -59,15 +224,15 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "outclass_sprite"
+  id: "nowhere_sprite"
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"outclassgames_logo\\\"\\n"
+  "  data: \"default_animation: \\\"nowhere\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "size {\\n"
-  "  x: 200.0\\n"
-  "  y: 200.0\\n"
+  "  x: 400.0\\n"
+  "  y: 400.0\\n"
   "}\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
@@ -92,7 +257,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "outclass_text"
+  id: "nowhere_text"
   data: "embedded_components {\n"
   "  id: \"label\"\n"
   "  type: \"label\"\n"
@@ -101,21 +266,35 @@ embedded_instances {
   "  y: 32.0\\n"
   "}\\n"
   "pivot: PIVOT_W\\n"
-  "text: \\\"Created stunning visual effects\\\\n"
+  "text: \\\"Developed and maintained a custom isometric particle\\\\n"
   "\\\"\\n"
-  "  \\\"Mastered rapid development environment\\\"\\n"
+  "  \\\"system aligned with the art direction.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Optimized rendering pipelines and a custom bone-based\\\\n"
+  "\\\"\\n"
+  "  \\\"animation system for performance and visual fidelity.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Built and extended production tools for\\\\n"
+  "\\\"\\n"
+  "  \\\"Unity, Photoshop, and Spine.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Created real-time visual effects and improved cross-team\\\\n"
+  "\\\"\\n"
+  "  \\\"workflows between art and engineering.\\\"\\n"
   "font: \\\"/font/fancy_font_copy.font\\\"\\n"
   "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
   "\"\n"
-  "  position {\n"
-  "    x: -861.11115\n"
-  "    y: 83.333336\n"
-  "  }\n"
   "}\n"
   ""
   position {
-    x: 0.555557
-    y: -11.666667
+    x: -86.66667
+    y: -46.111115
   }
   scale3 {
     x: 0.07
@@ -124,7 +303,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "outclass_title"
+  id: "outclass_title1"
   data: "embedded_components {\n"
   "  id: \"label\"\n"
   "  type: \"label\"\n"
@@ -149,12 +328,16 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "back"
+  id: "back1"
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"text_back\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 100.0\\n"
+  "  y: 100.0\\n"
+  "}\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
   "  texture: \\\"/assets/first.atlas\\\"\\n"
@@ -177,7 +360,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "outclass_date"
+  id: "nowhere_date"
   data: "embedded_components {\n"
   "  id: \"label\"\n"
   "  type: \"label\"\n"
@@ -185,7 +368,7 @@ embedded_instances {
   "  x: 128.0\\n"
   "  y: 32.0\\n"
   "}\\n"
-  "text: \\\"Mar 2022 - Apr 2022\\\\n"
+  "text: \\\"May 2022 - Jan 2023\\\\n"
   "\\\"\\n"
   "  \\\"\\\"\\n"
   "font: \\\"/font/fancy_font_copy.font\\\"\\n"
@@ -199,6 +382,327 @@ embedded_instances {
   }
   scale3 {
     x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "rootcraft"
+  children: "rootcraft_date"
+  children: "rootcraft_role"
+  children: "rootcraft_sprite"
+  children: "rootcraft_title"
+  data: ""
+  position {
+    x: 233.05556
+    y: 70.555504
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "rootcraft_role"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Game Developer\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    y: 17.857143\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -43.86111
+    y: 74.75
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "rootcraft_sprite"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"rootcraft\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "size {\\n"
+  "  x: 400.0\\n"
+  "  y: 400.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/first.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  scale {\n"
+  "    x: 3.0\n"
+  "    y: 3.0\n"
+  "    z: 3.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -46.25
+    y: 126.875
+  }
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "rootcraft_title"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Rootcraft\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -42.75
+    y: 90.52778
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "rootcraft_date"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Apr 2024 - May 2024\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -41.63889
+    y: 66.97222
+  }
+  scale3 {
+    x: 0.07
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "video"
+  children: "video2_text"
+  data: "components {\n"
+  "  id: \"video_player\"\n"
+  "  component: \"/scripts/video_player.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"logo\\\"\\n"
+  "material: \\\"/shaders/sprite_smoth.material\\\"\\n"
+  "size {\\n"
+  "  x: 128.0\\n"
+  "  y: 128.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/video_atlases/videos.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"anim\\\"\\n"
+  "material: \\\"/assets/sprite_black.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/builtins/graphics/particle_blob.tilesource\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 14.0\n"
+  "    y: 14.0\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 143.75
+    y: 6.25
+  }
+  scale3 {
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "video1"
+  children: "video2_text1"
+  data: "components {\n"
+  "  id: \"video_player\"\n"
+  "  component: \"/scripts/video_player.script\"\n"
+  "  properties {\n"
+  "    id: \"file_count\"\n"
+  "    value: \"2.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"logo2\\\"\\n"
+  "material: \\\"/shaders/sprite_smoth.material\\\"\\n"
+  "size {\\n"
+  "  x: 128.0\\n"
+  "  y: 128.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/video_atlases/videos2.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"anim\\\"\\n"
+  "material: \\\"/assets/sprite_black.material\\\"\\n"
+  "size {\\n"
+  "  x: 32.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/builtins/graphics/particle_blob.tilesource\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 14.0\n"
+  "    y: 14.0\n"
+  "    z: 2.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -83.75
+    y: 6.25
+  }
+  scale3 {
+    y: 2.0
+    z: 2.0
+  }
+}
+embedded_instances {
+  id: "video2_text"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Built UI and UI VFX.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Scripted gameplay systems \\\\n"
+  "\\\"\\n"
+  "  \\\"and mechanics.\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 71.42857\n"
+  "    y: -35.714287\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.2\n"
+  "    y: 1.2\n"
+  "    z: 1.2\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -17.61111
+    y: -103.375
+  }
+  scale3 {
+    x: 0.14
+    y: 0.07
+    z: 0.07
+  }
+}
+embedded_instances {
+  id: "video2_text1"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Built mesh cutting tools\\\\n"
+  "\\\"\\n"
+  "  \\\"and cutting effect.\\\\n"
+  "\\\"\\n"
+  "  \\\"\\\\n"
+  "\\\"\\n"
+  "  \\\"Built VFX and \\\\n"
+  "\\\"\\n"
+  "  \\\"particle effects.\\\"\\n"
+  "font: \\\"/font/fancy_font_copy.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 71.42857\n"
+  "    y: -35.714287\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.2\n"
+  "    y: 1.2\n"
+  "    z: 1.2\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -13.861111
+    y: -103.375
+  }
+  scale3 {
+    x: 0.14
     y: 0.07
     z: 0.07
   }

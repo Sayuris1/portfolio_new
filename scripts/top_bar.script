@@ -1,6 +1,6 @@
 local CURRENT_COLOR = vmath.vector4(0.23, 1, 0.1, 1)
 local PAST_COLOR = vmath.vector4(0.7, 0.2, 0.6, 1)
-local WAIT_COLOR= vmath.vector4(1, 1, 1, 1)
+local WAIT_COLOR = vmath.vector4(1, 1, 1, 1)
 
 local urls = {
         "/top_bar/start",
@@ -9,6 +9,15 @@ local urls = {
         "/top_bar/programming",
         "/top_bar/design",
         "/top_bar/CV"
+    }
+
+local counts = {
+        1,
+        3,
+        1,
+        1,
+        1,
+        1,
     }
 
 local function set_color_label(current_page)
@@ -47,6 +56,11 @@ end
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("next") then
+        counts[self.current_page] = counts[self.current_page] - 1
+        if counts[self.current_page] > 0 then
+            return
+        end
+
         self.current_page = self.current_page + 1
         set_color_label(self.current_page)
         set_color_circles(self.current_page)

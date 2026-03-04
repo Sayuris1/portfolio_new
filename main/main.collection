@@ -33,7 +33,7 @@ collection_instances {
   collection: "/prefabs/top_bar.collection"
   position {
     x: -3.0
-    y: 195.0
+    y: 180.0
     z: -500.0
   }
   scale3 {
@@ -45,6 +45,22 @@ collection_instances {
 collection_instances {
   id: "experience"
   collection: "/prefabs/experience.collection"
+  position {
+    x: 600.0
+    z: -500.0
+  }
+}
+collection_instances {
+  id: "experience2"
+  collection: "/prefabs/experience2.collection"
+  position {
+    x: 600.0
+    z: -500.0
+  }
+}
+collection_instances {
+  id: "experience3"
+  collection: "/prefabs/experience3.collection"
   position {
     x: 600.0
     z: -500.0
@@ -159,7 +175,7 @@ embedded_instances {
   ""
   position {
     x: -82.0
-    y: 200.0
+    y: -49.0
     z: -500.0
   }
   scale3 {
@@ -232,7 +248,7 @@ embedded_instances {
   ""
   position {
     x: 73.0
-    y: 200.0
+    y: -49.0
     z: -500.0
   }
   scale3 {

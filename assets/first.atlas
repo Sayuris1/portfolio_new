@@ -4,4 +4,19 @@ images {
 images {
   image: "/assets/outclassgames_logo.png"
 }
+images {
+  image: "/assets/nowhere.png"
+}
+images {
+  image: "/assets/rootcraft.png"
+}
+images {
+  image: "/assets/gplay.png"
+}
+images {
+  image: "/assets/appstore.png"
+}
+images {
+  image: "/assets/bar_round_gloss_large_square.png"
+}
 extrude_borders: 2
