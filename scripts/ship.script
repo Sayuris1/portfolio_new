@@ -1,0 +1,28 @@
+go.property("spawn_interval", 0.05)
+go.property("move_speed", 7)
+local timer = 5
+
+function init(self)
+	self.message_position = go.get_position()
+end
+
+function update(self, dt)
+	timer = timer + dt
+	if timer >= self.spawn_interval then
+		self.can_spawn = true
+	end
+
+	local new_pos = vmath.lerp(self.move_speed * dt, go.get_position(), self.message_position)
+	new_pos.y = math.min(new_pos.y, -250)
+	go.set_position(new_pos)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("fire") and self.can_spawn then
+		timer = 0
+		self.can_spawn = false
+		factory.create("#factory")
+	elseif message_id == hash("move_to_cursor") then
+		self.message_position = vmath.vector3(message.position.x, message.position.y, -500)
+	end
+end

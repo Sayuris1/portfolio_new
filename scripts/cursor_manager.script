@@ -10,4 +10,9 @@ function on_input(self, action_id, action)
     action.z = -500
 
     msg.post("/cursor#cursor", hash("input"), {action_id = action_id, action = action})
+    msg.post("/ship", "move_to_cursor", {position = vmath.vector3(action.x, action.y, action.z)})
+
+    if action_id == hash("touch") then
+        msg.post("/ship", "fire")
+    end
 end

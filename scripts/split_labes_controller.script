@@ -1,0 +1,115 @@
+function init(self)
+	self.text_table = {}
+	self.text = "Alp Ertunga Elgun"
+
+	-- Get the size of the assigned letter
+	local font = go.get("#label", "font")
+	local dist = 1
+
+	-- Split text into lines based on "\n"
+	local lines = {}
+	for line in self.text:gmatch("([^\n]*)\n?") do
+		if line ~= "" then
+			table.insert(lines, line)
+		end
+	end
+
+	-- Calculate overall height and width for centering
+	local line_metrics = {}
+	local overall_height = 0
+	local overall_width = 0
+	for _, line in ipairs(lines) do
+		local width = 0
+		local max_height = 0
+		for j = 1, #line do
+			local t = line:sub(j, j)
+			local m = resource.get_text_metrics(font, t)
+			width = width + (m.width or 0) * dist
+			max_height = math.max(max_height, m.height or 0)
+		end
+		table.insert(line_metrics, {width = width, height = max_height})
+		overall_height = overall_height + max_height
+		overall_width = math.max(overall_width, width)
+	end
+
+	-- Place each letter
+	local y_offset = go.get_position().y + overall_height / 2
+	local z = go.get_position().z - 500
+	for line_idx, line in ipairs(lines) do
+		local line_width = line_metrics[line_idx].width
+		local line_height = line_metrics[line_idx].height
+		local x_offset = go.get_position().x - line_width / 2
+		for i = 1, #line do
+			local text = line:sub(i, i)
+			table.insert(self.text_table, text)
+
+			-- Calculate cumulative width up to current letter
+			local total_width = 0
+			for j = 1, i - 1 do
+				local prev_text = line:sub(j, j)
+				local prev_metrics = resource.get_text_metrics(font, prev_text)
+				total_width = total_width + (prev_metrics.width or 0) * dist
+			end
+
+			local x = x_offset + total_width
+			local y = y_offset - (overall_height - line_height) - (line_height * (line_idx - 1))
+			local new = factory.create("#factory", vmath.vector3(x, y, z))
+
+			local url = msg.url(new)
+			url.fragment = hash("label")
+
+			label.set_text(url, text)
+		end
+	end
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function late_update(self, dt)
+	-- This function is called at the end of update cycle but before render
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function fixed_update(self, dt)
+	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
+	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
+	-- Physics section of game.project
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here. The game object this script is attached to
+	-- must have acquired input focus:
+	--
+	--    msg.post(".", "acquire_input_focus")
+	--
+	-- All mapped input bindings will be received. Mouse and touch input will
+	-- be received regardless of where on the screen it happened.
+	-- Learn more: https://defold.com/manuals/input/
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

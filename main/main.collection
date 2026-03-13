@@ -11,6 +11,14 @@ instances {
   id: "preprocess"
   prototype: "/prefabs/preprocess.go"
 }
+instances {
+  id: "ship"
+  prototype: "/prefabs/ship.go"
+  position {
+    y: -203.0
+    z: -500.0
+  }
+}
 collection_instances {
   id: "name"
   collection: "/prefabs/name.collection"
@@ -40,17 +48,10 @@ collection_instances {
   }
 }
 collection_instances {
-  id: "name1"
-  collection: "/prefabs/name.collection"
+  id: "split_labels"
+  collection: "/prefabs/split_labels.collection"
   position {
-    x: -20.0
-    y: 555.0
-    z: -500.0
-  }
-  scale3 {
-    x: 0.5
-    y: 0.5
-    z: 0.5
+    y: -106.0
   }
 }
 scale_along_z: 0
