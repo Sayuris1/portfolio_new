@@ -6,11 +6,7 @@ embedded_instances {
   children: "DESIGNER"
   children: "DEVELOPER"
   children: "ELGUN"
-  data: "components {\n"
-  "  id: \"oriantation_change_subscribe\"\n"
-  "  component: \"/scripts/oriantation_change_subscribe.script\"\n"
-  "}\n"
-  ""
+  data: ""
 }
 embedded_instances {
   id: "ALP"

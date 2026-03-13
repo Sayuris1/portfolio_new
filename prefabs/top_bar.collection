@@ -21,11 +21,10 @@ embedded_instances {
   children: "programming_circles"
   children: "start"
   children: "start_circles"
-  data: "components {\n"
-  "  id: \"oriantation_change_subscribe\"\n"
-  "  component: \"/scripts/oriantation_change_subscribe.script\"\n"
-  "}\n"
-  ""
+  data: ""
+  position {
+    x: 42.0
+  }
 }
 embedded_instances {
   id: "experience"
@@ -205,6 +204,11 @@ embedded_instances {
   ""
   position {
     x: 1431.0
+  }
+  scale3 {
+    x: 1.0E-6
+    y: 1.0E-6
+    z: 1.0E-6
   }
 }
 embedded_instances {
@@ -854,5 +858,10 @@ embedded_instances {
   ""
   position {
     x: 1523.0
+  }
+  scale3 {
+    x: 1.0E-6
+    y: 1.0E-6
+    z: 1.0E-6
   }
 }

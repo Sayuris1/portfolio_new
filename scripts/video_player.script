@@ -27,31 +27,6 @@ local function open(self, filename)
 	self.video = video
 end
 
-local function stream(self, filename)
-	close(self)
-
-	local options = {
-		audio = false,
-		loop = true,
-	}
-
-	-- in this example we fake streaming by loading the entire video
-	-- to a string and then gradually write portions of it to the
-	-- extension
-	-- in a real scenario you would read bytes from some other source
-	-- such as disk or network
-	self.streaming_data_index = 1
-	self.streaming_data = sys.load_resource(filename)
-
-	local video, err = mpeg.stream(options)
-	if err then
-		self.streaming_data = nil
-		error(err)
-		return
-	end
-	self.video = video
-end
-
 function init(self)
 	self.frame_count = 0
 	--stream(self, VIDEONAME)
@@ -63,6 +38,10 @@ function final(self)
 end
 
 function update(self, dt)
+	if not self.is_enable then
+		return
+	end
+
 	self.frame_count = self.frame_count + 1
 	if not self.video then
 		return
@@ -102,4 +81,12 @@ function update(self, dt)
 		local path = go.get("#sprite", "texture0")
 		resource.set_texture(path, videoheader, videoframe)
 	end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("disable") then
+        self.is_enable = false
+    elseif message_id == hash("enable") then
+        self.is_enable = true
+    end
 end

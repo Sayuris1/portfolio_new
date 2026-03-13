@@ -1,7 +1,0 @@
-font: "/font/fancy_font.otf"
-material: "/builtins/fonts/font.material"
-size: 200
-outline_alpha: 1.0
-outline_width: 14.0
-shadow_blur: 0
-characters: " !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"

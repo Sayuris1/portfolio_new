@@ -170,7 +170,7 @@ local function reset_camera_world(state)
 end
 
 function init(self)
-    self.predicates = create_predicates("bg", "tile", "gui", "particle", "model", "debug_text")
+    self.predicates = create_predicates("shock", "bg", "tile", "gui", "particle", "model", "debug_text")
 
     -- default is stretch projection. copy from builtins and change for different projection
     -- or send a message to the render script to change projection:
@@ -190,18 +190,17 @@ function init(self)
     local camera_component = create_camera(state, "camera_component")
     update_state(state)
 
-    self.start_width, self.start_height = state.window_width, state.window_height
+    local color_params = { format = graphics.TEXTURE_FORMAT_RGBA,
+                        width = render.get_window_width(),
+                        height = render.get_window_height(),
+                        min_filter = graphics.TEXTURE_FILTER_LINEAR,
+                        mag_filter = graphics.TEXTURE_FILTER_LINEAR,
+                        u_wrap = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE,
+                        v_wrap = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE }
+    self.shock_target = render.render_target("shock_target", {[graphics.BUFFER_TYPE_COLOR0_BIT] = color_params})
 end
 
-function update(self)
-    local state = self.state
-    if not state.valid then
-        if not update_state(state) then
-            return
-        end
-    end
-
-    local predicates = self.predicates
+function draw_classic(state, predicates)
     -- clear screen buffers
     --
     -- turn on depth_mask before `render.clear()` to clear it as well
@@ -209,17 +208,23 @@ function update(self)
     render.set_stencil_mask(0xff)
     render.clear(state.clear_buffers)
 
-    -- setup camera view and projection
-    --
-    local draw_options_world = set_camera_world(state)
-    render.set_viewport(0, 0, state.window_width, state.window_height)
-
     -- set states used for all the world predicates
     render.set_blend_func(graphics.BLEND_FACTOR_SRC_ALPHA, graphics.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA)
+
+    -- Draw to identity
+    -- Need to reset camera so set functions doesn't get ignored
+    render.set_camera()
+    render.set_view(vmath.matrix4())
+    render.set_projection(vmath.matrix4())
 
     render.enable_state(graphics.STATE_BLEND)
     render.draw(predicates.bg)
     render.disable_state(graphics.STATE_BLEND)
+
+    -- setup camera view and projection
+    --
+    local draw_options_world = set_camera_world(state)
+    render.set_viewport(0, 0, state.window_width, state.window_height)
 
     render.enable_state(graphics.STATE_DEPTH_TEST)
 
@@ -238,6 +243,45 @@ function update(self)
     render.disable_state(graphics.STATE_DEPTH_TEST)
 
     render.draw_debug3d()
+end
+
+function update(self)
+    local state = self.state
+    if not state.valid then
+        if not update_state(state) then
+            return
+        end
+    end
+
+    local predicates = self.predicates
+
+    -- Draw to rt
+    render.set_render_target_size(self.shock_target, state.window_width, state.window_height)
+    render.set_render_target(self.shock_target)
+
+    -- Draw Game
+    draw_classic(state, predicates)
+
+    -- Draw to screen
+    render.set_render_target(render.RENDER_TARGET_DEFAULT)
+
+    -- clear screen buffers
+    --
+    -- turn on depth_mask before `render.clear()` to clear it as well
+    render.set_depth_mask(true)
+    render.set_stencil_mask(0xff)
+    render.clear(state.clear_buffers)
+
+    -- Draw to identity
+    -- Need to reset camera so set functions doesn't get ignored
+    render.set_camera()
+    render.set_view(vmath.matrix4())
+    render.set_projection(vmath.matrix4())
+
+    -- Draw post
+    render.enable_texture(0, self.shock_target, graphics.BUFFER_TYPE_COLOR0_BIT)
+    render.draw(predicates.shock)
+    render.disable_texture(0)
 
     reset_camera_world(state)
 

@@ -1,8 +1,4 @@
 components {
-  id: "scale_to_screen"
-  component: "/scripts/scale_to_screen.script"
-}
-components {
   id: "animate_bg"
   component: "/scripts/animate_bg.script"
 }
