@@ -1,0 +1,19 @@
+function init(self)
+	self.health = 3
+	self.can_get_hurt = true
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("collision_response") and self.can_get_hurt then
+		timer.delay(0.00001, false, function (self, handle, time_elapsed)
+			self.can_get_hurt = true
+		end)
+
+		self.can_get_hurt = false
+
+		self.health = self.health - 1
+		if self.health <= 0 then
+			go.delete()
+		end
+	end
+end

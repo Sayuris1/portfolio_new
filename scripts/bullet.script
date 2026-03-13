@@ -12,4 +12,15 @@ function update(self, dt)
 	pos.y = pos.y + self.speed * dt
 	go.set_position(pos)
 	self.speed = self.speed * self.acceleration
+
+	local scale = go.get_scale()
+	pprint(self.speed)
+	scale.y = math.min(2, self.speed / 500)
+	go.set_scale(scale)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("collision_response") then
+		go.delete()
+	end
 end

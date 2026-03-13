@@ -1,6 +1,6 @@
 function init(self)
 	self.text_table = {}
-	self.text = "Alp Ertunga Elgun"
+	self.text = "Alp\nErtunga\nElgun"
 
 	-- Get the size of the assigned letter
 	local font = go.get("#label", "font")
@@ -52,8 +52,8 @@ function init(self)
 			end
 
 			local x = x_offset + total_width
-			local y = y_offset - (overall_height - line_height) - (line_height * (line_idx - 1))
-			local new = factory.create("#factory", vmath.vector3(x, y, z))
+			local y = y_offset - (overall_height - line_height) - (line_height * line_idx)
+			local new = factory.create("#factory", vmath.vector3(x, y, z), nil, {queue = #self.text_table})
 
 			local url = msg.url(new)
 			url.fragment = hash("label")

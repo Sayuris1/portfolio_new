@@ -1,3 +1,11 @@
+components {
+  id: "hittable_latter"
+  component: "/scripts/hittable_latter.script"
+}
+components {
+  id: "name_animate"
+  component: "/scripts/name_animate.script"
+}
 embedded_components {
   id: "label"
   type: "label"
@@ -21,5 +29,32 @@ embedded_components {
   "  \"\"\n"
   "font: \"/font/fancy_font.font\"\n"
   "material: \"/builtins/fonts/label-df.material\"\n"
+  ""
+}
+embedded_components {
+  id: "collisionobject"
+  type: "collisionobject"
+  data: "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
+  "mass: 0.0\n"
+  "friction: 0.1\n"
+  "restitution: 0.5\n"
+  "group: \"label\"\n"
+  "mask: \"bullet\"\n"
+  "embedded_collision_shape {\n"
+  "  shapes {\n"
+  "    shape_type: TYPE_BOX\n"
+  "    position {\n"
+  "      x: 47.0\n"
+  "      y: -6.0\n"
+  "    }\n"
+  "    rotation {\n"
+  "    }\n"
+  "    index: 0\n"
+  "    count: 3\n"
+  "  }\n"
+  "  data: 35.2\n"
+  "  data: 37.2\n"
+  "  data: 10.0\n"
+  "}\n"
   ""
 }

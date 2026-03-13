@@ -51,7 +51,7 @@ collection_instances {
   id: "split_labels"
   collection: "/prefabs/split_labels.collection"
   position {
-    y: -106.0
+    y: 250.0
   }
 }
 scale_along_z: 0
