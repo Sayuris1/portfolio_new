@@ -1,35 +1,23 @@
-go.property("spawn_interval", 0.05)
 go.property("move_speed", 7)
-local timer = 5
 
 function init(self)
 	self.message_position = go.get_position()
 end
 
 function update(self, dt)
-	timer = timer + dt
-	if timer >= self.spawn_interval then
-		self.can_spawn = true
-	end
-
 	local current_position = go.get_position()
 	local new_pos = vmath.lerp(self.move_speed * dt, current_position, self.message_position)
 	new_pos.y = math.min(new_pos.y, -250)
 	go.set_position(new_pos)
 
 	local dist = current_position.x - new_pos.x
-	local angle = math.max(-0.9, math.min(dist * 0.2, 0.9))
+	local angle = math.max(-0.9, math.min(dist * 0.15, 0.9))
 	go.set_rotation(vmath.quat_rotation_y(angle))
+
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("fire") and self.can_spawn then
-		timer = 0
-		self.can_spawn = false
-		local position = go.get_position()
-		position.y = position.y + 20
-		factory.create("#factory", position)
-	elseif message_id == hash("move_to_cursor") then
+	if message_id == hash("move_to_cursor") then
 		self.message_position = vmath.vector3(message.position.x, message.position.y, -500)
 	end
 end

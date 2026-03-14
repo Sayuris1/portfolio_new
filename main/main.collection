@@ -12,11 +12,35 @@ instances {
   prototype: "/prefabs/preprocess.go"
 }
 instances {
+  id: "ship_shadow"
+  prototype: "/prefabs/ship_shadow.go"
+  position {
+    y: -203.0
+    z: -501.0
+  }
+  component_properties {
+    id: "ship_shadow"
+    properties {
+      id: "move_speed"
+      value: "6.5"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+}
+instances {
   id: "ship"
   prototype: "/prefabs/ship.go"
   position {
     y: -203.0
     z: -500.0
+  }
+  component_properties {
+    id: "ship"
+    properties {
+      id: "move_speed"
+      value: "7.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
   }
 }
 collection_instances {
