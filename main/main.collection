@@ -20,12 +20,43 @@ instances {
   }
 }
 collection_instances {
-  id: "name"
-  collection: "/prefabs/name.collection"
+  id: "top_bar"
+  collection: "/prefabs/top_bar.collection"
   position {
-    x: -20.0
-    y: 141.0
+    x: 12.0
+    y: 330.0
     z: -500.0
+  }
+  scale3 {
+    x: 0.4
+    y: 0.4
+    z: 0.11
+  }
+}
+collection_instances {
+  id: "AlpElgun"
+  collection: "/prefabs/split_labels.collection"
+  position {
+    y: 353.0
+  }
+}
+collection_instances {
+  id: "Designer"
+  collection: "/prefabs/split_labels.collection"
+  position {
+    x: -125.0
+    y: 96.0
+  }
+  instance_properties {
+    id: "split_labes_controller"
+    properties {
+      id: "split_labes_controller"
+      properties {
+        id: "text_index"
+        value: "2.0"
+        type: PROPERTY_TYPE_NUMBER
+      }
+    }
   }
   scale3 {
     x: 0.5
@@ -34,24 +65,27 @@ collection_instances {
   }
 }
 collection_instances {
-  id: "top_bar"
-  collection: "/prefabs/top_bar.collection"
-  position {
-    x: -3.0
-    y: 180.0
-    z: -500.0
-  }
-  scale3 {
-    x: 0.11
-    y: 0.11
-    z: 0.11
-  }
-}
-collection_instances {
-  id: "split_labels"
+  id: "Developer"
   collection: "/prefabs/split_labels.collection"
   position {
-    y: 250.0
+    x: 97.0
+    y: 36.0
+  }
+  instance_properties {
+    id: "split_labes_controller"
+    properties {
+      id: "split_labes_controller"
+      properties {
+        id: "text_index"
+        value: "3.0"
+        type: PROPERTY_TYPE_NUMBER
+      }
+    }
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 0.5
   }
 }
 scale_along_z: 0

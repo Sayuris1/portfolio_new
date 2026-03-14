@@ -14,13 +14,14 @@ function update(self, dt)
 	self.speed = self.speed * self.acceleration
 
 	local scale = go.get_scale()
-	pprint(self.speed)
-	scale.y = math.min(2, self.speed / 500)
+	scale.y = math.min(4, self.speed / 300)
 	go.set_scale(scale)
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("collision_response") then
+		particlefx.play("#particle")
+
 		go.delete()
 	end
 end

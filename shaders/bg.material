@@ -19,3 +19,9 @@ fragment_constants {
   value {
   }
 }
+fragment_constants {
+  name: "bgh_ship"
+  type: CONSTANT_TYPE_USER
+  value {
+  }
+}

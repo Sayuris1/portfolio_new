@@ -9,6 +9,7 @@ uniform fs_uniforms
 {
     mediump vec4 bg_const;
     mediump vec4 bg_rands;
+    mediump vec4 bg_ship;
 };
 
 //Inspired by JoshP's Simplicity shader: https://www.shadertoy.com/view/lslGWr
@@ -60,7 +61,7 @@ void main()
     vec2 uv = 2. * var_texcoord0.xy - 1.;
     vec2 uvs = uv * bg_const.zw / bg_const.y;
     vec3 p = vec3(uvs / 4., 0) + vec3(1., -1.3, 0.);
-	p += .2 * vec3(sin(bg_const.x / 16.), sin(bg_const.x / 12.),  sin(bg_const.x / 50.));
+	p += .2 * vec3(sin(bg_const.x / 16.) + bg_ship.x * 0.005, sin(bg_const.x / 12.),  sin(bg_const.x / 50.) + bg_ship.x * 0.005);
 
     // First Layer
     float t = field(p,bg_rands.z);
@@ -68,7 +69,7 @@ void main()
 
     // Second Layer
 	vec3 p2 = vec3(uvs / (4.+sin(bg_const.x*0.11)*0.2+0.2+sin(bg_const.x*0.15)*0.3+0.4), 1.5) + vec3(2., -1.3, -1.);
-	p2 += 0.25 * vec3(sin(bg_const.x / 16.), sin(bg_const.x / 12.),  sin(bg_const.x / 80.));
+	p2 += 0.25 * vec3(sin(bg_const.x / 16.) + bg_ship.x * 0.005, sin(bg_const.x / 12.),  sin(bg_const.x / 80.) + bg_ship.x * 0.005);
 	float t2 = field2(p2,bg_rands.w);
 	vec4 c2 = mix(.4, 1., v) * vec4(1.3 * t2 * t2 * t2 ,1.8  * t2 * t2 , t2*bg_rands.x, t2);
 

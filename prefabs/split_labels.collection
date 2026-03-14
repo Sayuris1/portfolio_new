@@ -29,9 +29,13 @@ embedded_instances {
   "  y: 0.7019608\\n"
   "  z: 0.5019608\\n"
   "}\\n"
+  "text: \\\"Alp Elgun\\\"\\n"
   "font: \\\"/font/fancy_font_copy.font\\\"\\n"
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
+  "  position {\n"
+  "    y: -67.0\n"
+  "  }\n"
   "}\n"
   ""
 }

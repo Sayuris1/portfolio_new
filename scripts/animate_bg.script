@@ -16,7 +16,9 @@ function update(self, dt)
 
     self.time = self.time + dt
 
-    go.set("#model", "bg_const", vmath.vector4(self.time, math.max(width, height), width, height))
+    local ship_pos = go.get_position("/ship")
+    go.set("#model", "bg_ship", vmath.vector4(ship_pos.x * 0.01, 0,0,0))
+    go.set("#model", "bg_const", vmath.vector4(self.time * 1, math.max(width, height), width, height))
 
     self.rand_current = vmath.lerp(dt * 0.2, self.rand_current, self.rand_aim)
     go.set("#model", "bg_rands", self.rand_current)

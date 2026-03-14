@@ -1,10 +1,12 @@
+go.property("text_index", 1)
+
 function init(self)
 	self.text_table = {}
-	self.text = "Alp\nErtunga\nElgun"
+	self.text = require("scripts.text")[self.text_index]
 
 	-- Get the size of the assigned letter
 	local font = go.get("#label", "font")
-	local dist = 1
+	local dist = 1 * go.get_scale().x
 
 	-- Split text into lines based on "\n"
 	local lines = {}
