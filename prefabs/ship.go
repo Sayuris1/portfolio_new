@@ -2,6 +2,13 @@ components {
   id: "ship"
   component: "/scripts/ship.script"
 }
+components {
+  id: "ship_particle_long"
+  component: "/prefabs/ship_particle_long.particlefx"
+  position {
+    y: -23.0
+  }
+}
 embedded_components {
   id: "sprite"
   type: "sprite"

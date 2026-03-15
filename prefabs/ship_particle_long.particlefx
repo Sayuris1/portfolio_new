@@ -1,7 +1,9 @@
 emitters {
-  mode: PLAY_MODE_ONCE
-  duration: 0.01
+  mode: PLAY_MODE_LOOP
   space: EMISSION_SPACE_WORLD
+  position {
+    y: -3.0
+  }
   rotation {
     z: 1.0
     w: 6.123234E-17
@@ -11,6 +13,7 @@ emitters {
   material: "/builtins/materials/particlefx.material"
   blend_mode: BLEND_MODE_ADD
   particle_orientation: PARTICLE_ORIENTATION_MOVEMENT_DIRECTION
+  inherit_velocity: -0.3
   max_particle_count: 128
   type: EMITTER_TYPE_2DCONE
   properties {
@@ -18,27 +21,26 @@ emitters {
     points {
       y: 10000.0
     }
-    spread: 10000.0
   }
   properties {
     key: EMITTER_KEY_SIZE_X
     points {
-      y: 75.0
+      y: 1.0
     }
     spread: 25.0
   }
   properties {
     key: EMITTER_KEY_SIZE_Y
     points {
-      y: 12.0
+      y: 1.0
     }
   }
   properties {
     key: EMITTER_KEY_PARTICLE_LIFE_TIME
     points {
-      y: 0.5
+      y: 0.3
     }
-    spread: 0.5
+    spread: 0.1
   }
   properties {
     key: EMITTER_KEY_PARTICLE_SPEED

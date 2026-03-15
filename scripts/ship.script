@@ -4,6 +4,8 @@ local timer = 5
 
 function init(self)
 	self.message_position = go.get_position()
+
+	particlefx.play("#ship_particle_long")
 end
 
 function update(self, dt)

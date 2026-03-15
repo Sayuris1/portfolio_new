@@ -1,9 +1,5 @@
 name: "main"
 instances {
-  id: "camera"
-  prototype: "/prefabs/camera.go"
-}
-instances {
   id: "bg"
   prototype: "/prefabs/bg.go"
 }
@@ -42,6 +38,10 @@ instances {
       type: PROPERTY_TYPE_NUMBER
     }
   }
+}
+instances {
+  id: "camera"
+  prototype: "/prefabs/camera.go"
 }
 collection_instances {
   id: "top_bar"
