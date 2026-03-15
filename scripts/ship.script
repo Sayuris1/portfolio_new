@@ -29,7 +29,7 @@ function on_message(self, message_id, message, sender)
 		timer = 0
 		self.can_spawn = false
 		local position = go.get_position()
-		position.y = position.y + 20
+		position.y = position.y + 30
 		factory.create("#factory", position)
 	elseif message_id == hash("move_to_cursor") then
 		self.message_position = vmath.vector3(message.position.x, message.position.y, -500)

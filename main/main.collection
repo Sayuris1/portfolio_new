@@ -43,6 +43,28 @@ instances {
   id: "camera"
   prototype: "/prefabs/camera.go"
 }
+instances {
+  id: "video"
+  prototype: "/prefabs/video.go"
+  position {
+    x: 334.0
+    y: 151.0
+    z: -500.0
+  }
+  component_properties {
+    id: "video_player"
+    properties {
+      id: "file_count"
+      value: "7.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 240.0
+    y: 135.0
+    z: 100.0
+  }
+}
 collection_instances {
   id: "top_bar"
   collection: "/prefabs/top_bar.collection"
@@ -61,15 +83,16 @@ collection_instances {
   id: "AlpElgun"
   collection: "/prefabs/split_labels.collection"
   position {
-    y: 353.0
+    x: -336.0
+    y: 317.0
   }
 }
 collection_instances {
   id: "Designer"
   collection: "/prefabs/split_labels.collection"
   position {
-    x: -125.0
-    y: 96.0
+    x: -461.0
+    y: 60.0
   }
   instance_properties {
     id: "split_labes_controller"
@@ -92,8 +115,7 @@ collection_instances {
   id: "Developer"
   collection: "/prefabs/split_labels.collection"
   position {
-    x: 97.0
-    y: 36.0
+    x: -239.0
   }
   instance_properties {
     id: "split_labes_controller"
@@ -163,7 +185,7 @@ embedded_instances {
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"logo\\\"\\n"
+  "  data: \"default_animation: \\\"logo_256\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "size {\\n"
   "  x: 128.0\\n"
@@ -171,13 +193,13 @@ embedded_instances {
   "}\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/assets/video_atlases/videos.atlas\\\"\\n"
+  "  texture: \\\"/assets/basic.atlas\\\"\\n"
   "}\\n"
   "\"\n"
   "}\n"
   ""
   position {
-    y: -424.0
+    y: -488.0
     z: -500.0
   }
   scale3 {
@@ -189,7 +211,7 @@ embedded_instances {
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"logo\\\"\\n"
+  "  data: \"default_animation: \\\"logo_256\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "size {\\n"
   "  x: 128.0\\n"
@@ -197,13 +219,13 @@ embedded_instances {
   "}\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/assets/video_atlases/videos.atlas\\\"\\n"
+  "  texture: \\\"/assets/basic.atlas\\\"\\n"
   "}\\n"
   "\"\n"
   "}\n"
   ""
   position {
-    y: 424.0
+    y: 488.0
     z: -500.0
   }
   scale3 {

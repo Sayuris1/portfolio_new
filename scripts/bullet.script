@@ -2,7 +2,7 @@ go.property("speed", 200)
 go.property("acceleration", 1.02) -- exponential factor
 
 function init(self)
-	timer.delay(1, false, function (self, handle, time_elapsed)
+	timer.delay(2, false, function (self, handle, time_elapsed)
 		go.delete()
 	end)
 end

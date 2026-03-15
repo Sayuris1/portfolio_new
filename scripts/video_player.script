@@ -31,10 +31,18 @@ function init(self)
 	self.frame_count = 0
 	--stream(self, VIDEONAME)
 	open(self, "/videos/video" .. self.file_count .. ".mpeg")
+	self.is_enable = true
+
+	self.health = 15
+	self.can_get_hurt = true
+
+	msg.post("/bg#animate_bg", "start_video")
 end
 
 function final(self)
 	close(self)
+	
+	msg.post("/bg#animate_bg", "stop_video")
 end
 
 function update(self, dt)
@@ -78,7 +86,7 @@ function update(self, dt)
 	local videoframe = mpeg.get_frame(self.video)
 	if videoframe then
 		local videoheader = { width=info.width, height=info.height, type=resource.TEXTURE_TYPE_2D, format=resource.TEXTURE_FORMAT_RGB, num_mip_maps=1 }
-		local path = go.get("#sprite", "texture0")
+		local path = go.get("#model", "texture1")
 		resource.set_texture(path, videoheader, videoframe)
 	end
 end
@@ -88,5 +96,30 @@ function on_message(self, message_id, message, sender)
         self.is_enable = false
     elseif message_id == hash("enable") then
         self.is_enable = true
-    end
+	elseif message_id == hash("collision_response") and self.can_get_hurt then
+		local timer_handle = timer.delay(0.0000001, false, function (self, handle, time_elapsed)
+			self.can_get_hurt = true
+		end)
+
+		self.can_get_hurt = false
+
+		self.health = self.health - 1
+		if self.health <= 0 then
+			timer.cancel(timer_handle)
+
+			self.can_get_hurt = false
+
+			local go_to_y2 = go.get_position().y - 1000
+			local go_to_x = go.get_position().x + 650 * (math.random(0, 1) * 2 - 1)
+
+			msg.post("#collisionobject", "disable")
+
+			go.animate(".", "position.x", go.PLAYBACK_ONCE_FORWARD, go_to_x, go.EASING_INCIRC, 1)
+			go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, go_to_y2, go.EASING_INBACK, 0.5, 0.0, function (self, url, property)
+				go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, go_to_y2 - 800, go.EASING_LINEAR, 0.2, 0.0, function (self, url, property)
+					go.delete()
+				end)
+			end)
+		end
+	end
 end

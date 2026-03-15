@@ -32,6 +32,7 @@ title = portfolio
 custom_resources = videos
 dependencies#0 = https://github.com/britzl/defold-input/archive/refs/tags/4.7.0.zip
 dependencies#1 = https://github.com/defold/extension-videoplayer-mpeg/archive/master.zip
+dependencies#2 = https://github.com/defold/extension-videoplayer-mpeg/archive/master.zip
 
 [label]
 max_count = 128

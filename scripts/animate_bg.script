@@ -22,4 +22,16 @@ function update(self, dt)
 
     self.rand_current = vmath.lerp(dt * 0.2, self.rand_current, self.rand_aim)
     go.set("#model", "bg_rands", self.rand_current)
+
+    if self.play_video then
+        go.set("/video#model", "inputs", vmath.vector4(self.time, 0, 0, 0))
+    end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("stop_video") then
+        self.play_video = false
+    elseif message_id == hash("start_video") then
+        self.play_video = true
+    end   
 end

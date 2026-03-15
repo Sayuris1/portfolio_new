@@ -7,4 +7,10 @@ images {
 images {
   image: "/assets/ship_blured.png"
 }
+images {
+  image: "/assets/mask.png"
+}
+images {
+  image: "/builtins/assets/images/logo/logo_256.png"
+}
 extrude_borders: 2
