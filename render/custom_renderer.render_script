@@ -280,7 +280,9 @@ function update(self)
 
     -- Draw post
     render.enable_texture(0, self.shock_target, graphics.BUFFER_TYPE_COLOR0_BIT)
-    render.draw(predicates.shock)
+    local constants = render.constant_buffer()
+    constants.u_screen = vmath.vector4(state.window_width, state.window_height, 0, 0)
+    render.draw(predicates.shock, { constants = constants })
     render.disable_texture(0)
 
     reset_camera_world(state)

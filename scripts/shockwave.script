@@ -1,9 +1,0 @@
-function init(self)
-	self.time = 0
-end
-
-function update(self, dt)
-	self.time = self.time + dt
-	pos = vmath.vector3(500, 500, 0)
-	--go.set("#model", "u_in", vmath.vector4(pos.x, pos.y, self.time, 0))
-end

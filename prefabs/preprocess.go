@@ -1,7 +1,3 @@
-components {
-  id: "shockwave"
-  component: "/scripts/shockwave.script"
-}
 embedded_components {
   id: "model"
   type: "model"

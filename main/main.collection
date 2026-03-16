@@ -4,7 +4,7 @@ instances {
   prototype: "/prefabs/bg.go"
 }
 instances {
-  id: "preprocess"
+  id: "postprocess"
   prototype: "/prefabs/preprocess.go"
 }
 instances {

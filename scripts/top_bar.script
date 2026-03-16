@@ -13,7 +13,16 @@ local urls = {
 
 local counts = {
         1,
-        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+    }
+
+local letters = {
+        26,
+        1,
         1,
         1,
         1,
@@ -48,25 +57,43 @@ local function set_color_circles_back(current_page)
     end
 end
 
+go.property("shock_time", 0)
+local function next(self)
+    counts[self.current_page] = counts[self.current_page] - 1
+    if counts[self.current_page] > 0 then
+        return
+    end
+
+    self.current_page = self.current_page + 1
+    set_color_label(self.current_page)
+    set_color_circles(self.current_page)
+
+    self.cursor_pos = camera.world_to_screen(go.get_position("/ship"), "/camera#camera")
+    go.animate("#", "shock_time", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_INSINE, 1, 0, function (self, url, property)
+        self.cursor_pos = vmath.vector3(-100000, -100000, 0)
+    end)
+end
+
 function init(self)
+    self.cursor_pos = vmath.vector3()
     self.current_page = 1
 
     go.set(urls[1] .. "#label", "color", CURRENT_COLOR)
 end
 
-function on_message(self, message_id, message, sender)
-    if message_id == hash("next") then
-        counts[self.current_page] = counts[self.current_page] - 1
-        if counts[self.current_page] > 0 then
-            return
-        end
+function update(self, dt)
+    go.set("/postprocess#model", "u_in", vmath.vector4(self.cursor_pos.x, self.cursor_pos.y, self.shock_time, 0))
+end
 
-        self.current_page = self.current_page + 1
-        set_color_label(self.current_page)
-        set_color_circles(self.current_page)
-    elseif message_id == hash("prev") then
+function on_message(self, message_id, message, sender)
+    if message_id == hash("prev") then
         self.current_page = self.current_page - 1
         set_color_label_back(self.current_page)
         set_color_circles_back(self.current_page)
+    elseif message_id == hash("letter_down") then
+        letters[self.current_page] = letters[self.current_page] - 1
+        if letters[self.current_page] <= 0 then
+            next(self)
+        end
     end
 end

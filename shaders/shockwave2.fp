@@ -1,5 +1,6 @@
 //precision highp float;
 uniform lowp vec4 u_in;
+uniform lowp vec4 u_screen;
 
 varying mediump vec2 var_texcoord0;
 
@@ -15,14 +16,13 @@ void main()
 {
     // x --> Distortion
     // y --> Size, z --> Circle
-    const vec3 WaveParams = vec3(12.0, 0.8, 0.01);
-    const vec2 res = vec2(1280.0, 720.0);
+    const vec3 WaveParams = vec3(12.0, 0.8, 0.03);
 
     //Sawtooth wave
     float offset = (u_in.z - floor(u_in.z)) / u_in.z;
 	float current_time = u_in.z * offset;    
 
-    vec2 wave_centre = u_in.xy / res.xy;
+    vec2 wave_centre = u_in.xy / u_screen.xy;
     float dist = distance(var_texcoord0, wave_centre);
 
     vec4 color = texture2D(texture_sampler, var_texcoord0);

@@ -33,5 +33,5 @@ function on_message(self, message_id, message, sender)
         self.play_video = false
     elseif message_id == hash("start_video") then
         self.play_video = true
-    end   
+    end
 end
