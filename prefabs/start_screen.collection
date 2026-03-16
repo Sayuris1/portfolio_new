@@ -1,0 +1,67 @@
+name: "start_screen"
+collection_instances {
+  id: "AlpElgun"
+  collection: "/prefabs/split_labels.collection"
+  position {
+    x: -24.0
+    y: 317.0
+  }
+}
+collection_instances {
+  id: "Designer"
+  collection: "/prefabs/split_labels.collection"
+  position {
+    x: -149.0
+    y: 60.0
+  }
+  instance_properties {
+    id: "split_labes_controller"
+    properties {
+      id: "split_labes_controller"
+      properties {
+        id: "text_index"
+        value: "2.0"
+        type: PROPERTY_TYPE_NUMBER
+      }
+      properties {
+        id: "wait_for"
+        value: "8.0"
+        type: PROPERTY_TYPE_NUMBER
+      }
+    }
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 0.5
+  }
+}
+collection_instances {
+  id: "Developer"
+  collection: "/prefabs/split_labels.collection"
+  position {
+    x: 73.0
+  }
+  instance_properties {
+    id: "split_labes_controller"
+    properties {
+      id: "split_labes_controller"
+      properties {
+        id: "text_index"
+        value: "3.0"
+        type: PROPERTY_TYPE_NUMBER
+      }
+      properties {
+        id: "wait_for"
+        value: "16.0"
+        type: PROPERTY_TYPE_NUMBER
+      }
+    }
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 0.5
+  }
+}
+scale_along_z: 0

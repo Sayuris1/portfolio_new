@@ -6,6 +6,7 @@ function init(self)
 	self.message_position = go.get_position()
 
 	particlefx.play("#ship_particle_long")
+	self.can_turn = true
 end
 
 function update(self, dt)
@@ -19,9 +20,16 @@ function update(self, dt)
 	new_pos.y = math.min(new_pos.y, -250)
 	go.set_position(new_pos)
 
-	local dist = current_position.x - new_pos.x
-	local angle = math.max(-0.9, math.min(dist * 0.2, 0.9))
-	go.set_rotation(vmath.quat_rotation_y(angle))
+	if self.can_turn then
+		local dist = current_position.x - new_pos.x
+		local target_angle = math.max(-0.9, math.min(dist * 0.2, 0.9))
+		local target_rot = vmath.quat_rotation_y(target_angle)
+		
+		local current_rot = go.get_rotation()
+		local new_rot = vmath.lerp(self.move_speed * dt * 50, current_rot, target_rot)
+
+		go.set_rotation(new_rot)
+	end
 end
 
 function on_message(self, message_id, message, sender)
@@ -33,5 +41,10 @@ function on_message(self, message_id, message, sender)
 		factory.create("#factory", position)
 	elseif message_id == hash("move_to_cursor") then
 		self.message_position = vmath.vector3(message.position.x, message.position.y, -500)
+	elseif message_id == hash("rotating_animation") then
+		self.can_turn = false
+		go.animate(".", "euler.y", go.PLAYBACK_ONCE_FORWARD, 180 * 6, go.EASING_INOUTCUBIC, 3, 0, function (self, url, property)
+			self.can_turn = true
+		end)
 	end
 end

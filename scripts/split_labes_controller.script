@@ -1,6 +1,8 @@
 go.property("text_index", 1)
+go.property("wait_for", 1)
 
 function init(self)
+	self.text_go_table = {}
 	self.text_table = {}
 	self.text = require("scripts.text")[self.text_index]
 
@@ -61,7 +63,25 @@ function init(self)
 			url.fragment = hash("label")
 
 			label.set_text(url, text)
+			table.insert(self.text_go_table, new)
 		end
+	end
+
+	local i = 0
+	for key, value in pairs(self.text_go_table) do
+		i = i + 1
+
+		local co_url = msg.url(value)
+		co_url.fragment = hash("collisionobject")
+
+		msg.post(co_url, "disable")
+
+		local pos = go.get_position(value)
+		pos.y = pos.y - 750
+		go.animate(value, "position.y", go.PLAYBACK_ONCE_FORWARD, pos.y, go.EASING_OUTBACK, 1, (i * 0.1) + (self.wait_for * 0.1), function (self, url, property)
+			msg.post(co_url, "enable")
+			msg.post(value, hash("start"))
+		end)
 	end
 end
 

@@ -1,0 +1,29 @@
+go.property("move_speed", 10)
+
+function init(self)
+	local ship_position = go.get_position("/ship")
+	local current_position = go.get_position()
+
+	self.offset = current_position - ship_position
+end
+
+function update(self, dt)
+	local current_position = go.get_position()
+	local target_position = go.get_position("/ship") + self.offset
+
+	local new_pos = vmath.lerp(self.move_speed * dt, current_position, target_position)
+	go.set_position(new_pos)
+
+	local dist = current_position.x - new_pos.x
+	local angle_y = math.max(-0.7, math.min(dist * 0.3, 0.7))
+	local angle_z = math.max(-0.7, math.min(dist * 0.05, 0.7))
+
+	local rot_y = vmath.quat_rotation_y(angle_y)
+	local rot_z = vmath.quat_rotation_z(angle_z)
+	local target_rotation = rot_y * rot_z
+
+	local current_rotation = go.get_rotation()
+	local combined_rotation = vmath.lerp(self.move_speed * dt, current_rotation, target_rotation)
+
+	go.set_rotation(combined_rotation)
+end

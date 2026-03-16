@@ -24,7 +24,7 @@ function update(self, dt)
     go.set("#model", "bg_rands", self.rand_current)
 
     if self.play_video then
-        go.set("/video#model", "inputs", vmath.vector4(self.time, 0, 0, 0))
+        --go.set("/video#model", "inputs", vmath.vector4(self.time, 0, 0, 0))
     end
 end
 

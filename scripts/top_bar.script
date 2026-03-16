@@ -21,7 +21,7 @@ local counts = {
     }
 
 local letters = {
-        26,
+        25,
         1,
         1,
         1,
@@ -59,6 +59,15 @@ end
 
 go.property("shock_time", 0)
 local function next(self)
+    if self.current_page == 1 then
+        go.animate("/tutorial#sprite", "tint.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTSINE, 1)
+        go.animate("/tutorial#label", "color.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTSINE, 1)
+        go.animate("/tutorial#label", "outline.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTSINE, 1)
+        go.animate("/tutorial#label", "shadow.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTSINE, 1, 0, function (self, url, property)
+            go.delete("/tutorial")
+        end)
+    end
+
     counts[self.current_page] = counts[self.current_page] - 1
     if counts[self.current_page] > 0 then
         return
@@ -71,14 +80,19 @@ local function next(self)
     self.cursor_pos = camera.world_to_screen(go.get_position("/ship"), "/camera#camera")
     go.animate("#", "shock_time", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_INSINE, 1, 0, function (self, url, property)
         self.cursor_pos = vmath.vector3(-100000, -100000, 0)
+        collectionfactory.create("/screen_factory#collectionfactory", vmath.vector3(0, 750, -500))
     end)
+
+    msg.post("/ship", "rotating_animation")
 end
 
 function init(self)
-    self.cursor_pos = vmath.vector3()
+    self.cursor_pos = vmath.vector3(-100000, -100000, 0)
     self.current_page = 1
 
     go.set(urls[1] .. "#label", "color", CURRENT_COLOR)
+
+    collectionfactory.create("/screen_factory#collectionfactory", vmath.vector3(0, 750, 0), nil, nil, vmath.vector3(1.05, 1.05, 1.05))
 end
 
 function update(self, dt)
@@ -92,6 +106,7 @@ function on_message(self, message_id, message, sender)
         set_color_circles_back(self.current_page)
     elseif message_id == hash("letter_down") then
         letters[self.current_page] = letters[self.current_page] - 1
+        pprint(letters[self.current_page])
         if letters[self.current_page] <= 0 then
             next(self)
         end

@@ -7,10 +7,6 @@ end
 function init(self)
 	self.health = 3
 	self.can_get_hurt = true
-
-	self.delay = 0.1
-    self.go_to_y = go.get_position().y + 20
-	go.animate(".", "position.y", go.PLAYBACK_ONCE_PINGPONG, self.go_to_y, go.EASING_INBACK, 2, self.delay * self.queue, complete_function)
 end
 
 function on_message(self, message_id, message, sender)
@@ -45,5 +41,10 @@ function on_message(self, message_id, message, sender)
 				end)
 			end)
 		end
+	elseif message_id == hash("start") then
+		self.delay = 0.1
+		self.go_to_y = go.get_position().y + 20
+
+		go.animate(".", "position.y", go.PLAYBACK_ONCE_PINGPONG, self.go_to_y, go.EASING_INBACK, 2, self.delay * self.queue, complete_function)
 	end
 end
