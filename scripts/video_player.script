@@ -37,6 +37,12 @@ function init(self)
 	self.can_get_hurt = true
 
 	msg.post("/bg#animate_bg", "start_video")
+
+	local pos = go.get_position()
+	pos.y = pos.y - 750
+	go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, pos.y, go.EASING_OUTBACK, 1, self.wait_for * 0.1, function ()
+			msg.post("#collisionobject", "enable")
+	end)
 end
 
 function final(self)
